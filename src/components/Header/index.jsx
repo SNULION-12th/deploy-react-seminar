@@ -1,11 +1,10 @@
 import lion from "../../assets/images/lion.jpeg";
-import "./Header.css";
 
 const Header = () => {
     return (
-        <div id="header-wrapper" className="flex justify-between">
+        <div className="flex items-center justify-between w-full gap-5 bg-black px-5 py-2.5 h-20">
             <div className="flex flex-row items-center gap-5">
-                <img id="header-lion" src={lion} alt="lion" />
+                <img src={lion} alt="lion" className="max-h-16 rounded-full" />
                 <div className="text-white text-xl">SNULION BLOG</div>
             </div>
         </div>
