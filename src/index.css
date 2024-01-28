@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* smallPost 안에 있는 tag */
+/* SmallPost, BigPost 안에 있는 tag */
 .tag {
     @apply text-white bg-black p-2 text-xs rounded-2xl group-hover:bg-orange-200 group-hover:text-black hover:bg-orange-200 hover:text-black;
 }
