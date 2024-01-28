@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="w-[100%] bottom-0">
             <div className="flex h-[9vh] justify-center items-center p-[20px] bg-black">
                 <img className="w-[30px] h-[30px] mr-[10px] rounded-full" src={logo} alt="logo"></img>
-                <span className="text-[16px] font-medium">SNU LION 2023</span>
+                <span className="text-[16px] font-medium">SNULION 2024</span>
             </div>
         </div>
     )
