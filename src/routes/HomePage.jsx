@@ -16,7 +16,7 @@ const HomePage = () => {
         </div>
         <input
           type="text"
-          placeholder="Tag Search"
+          placeholder="태그를 검색하세요"
           onChange={handleChange}
           className="border border-orange-400 outline-none rounded-2xl text-center py-2 px-20 text-orange-400 bg-transparent"
         />
@@ -29,7 +29,7 @@ const HomePage = () => {
       </div>
       <div className="flex justify-center m-20">
         <Link className="button" to="/create">
-          Post
+          작성
         </Link>
       </div>
     </div>
