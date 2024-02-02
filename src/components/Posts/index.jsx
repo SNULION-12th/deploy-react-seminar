@@ -4,12 +4,12 @@ export const SmallPost = ({ post }) => {
   };
 
   return (
-    <div className="w-64 relative block group py-10 px-8 mr-5 my-5 ring-8 ring-transparent border-2 border-box border-white hover:bg-orange-400 hover:text-black hover:border-transparent hover:ring-orange-200 rounded-xl font-medium">
+    <div className="w-64 relative block group py-10 px-8 mr-5 my-5 ring-8 ring-transparent border-2 border-box border-white hover:bg-orange-400 hover:text-black hover:border-transparent hover:ring-orange-300 hover:ring-opacity-90 rounded-xl font-medium">
       <h1 className="font-extrabold text-2xl truncate">{post.title}</h1>
       <p className="mt-2">{post.author.username}</p>
-      <div className="flex flex-wrap mt-5">
+      <div className="flex flex-wrap mt-4">
         {post.tags.map((tag) => (
-          <span key={tag.id} className="tag m-1">
+          <span key={tag.id} className="tag mr-1 mb-2">
             #{tag.content}
           </span>
         ))}
@@ -27,7 +27,7 @@ export const BigPost = ({ post }) => {
   };
 
   return (
-    <div className="flex flex-col px-8 py-5 w-full bg-orange-400 ring-8 ring-orange-200 rounded-xl gap-5">
+    <div className="flex flex-col px-8 py-5 w-full bg-orange-400 ring-4 ring-orange-200 rounded-xl gap-5">
       <div className="flex flex-row items-center justify-between gap-3">
         <span className="text-black font-bold text-2xl">
           {post.author.username}의 {post.title}

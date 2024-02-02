@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div>
       <div className="flex flex-col justify-center items-center mb-5">
-        <div className="w-full h-72 pb-5 flex justify-center bg-[url('https://www.codelion.net/codelion_thumb.jpg')] bg-center bg-cover">
+        <div className="w-full mb-16 flex justify-center">
           <h1 className="uppercase text-6xl text-white">my blog</h1>
         </div>
         <input
@@ -22,7 +22,7 @@ const HomePage = () => {
         />
       </div>
 
-      <div className="grid grid-cols-4 px-10 mt-10">
+      <div className="grid grid-cols-3 px-10 mt-10">
         {postList.map((post) => (
           <SmallPost key={post.id} post={post} />
         ))}

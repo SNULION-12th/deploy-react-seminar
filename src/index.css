@@ -18,7 +18,7 @@
 }
 /* 모든 버튼 일괄 적용 */
 .button {
-  @apply bg-orange-400 text-white font-medium hover:text-black rounded-xl text-lg p-3.5;
+  @apply bg-orange-400 text-white font-medium hover:text-black rounded-2xl text-lg px-7 py-2;
 }
 /* 모든 form 일괄 적용 */
 .form {
