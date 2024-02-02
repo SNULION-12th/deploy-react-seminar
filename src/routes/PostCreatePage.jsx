@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
-import { BigPost } from "../components/Posts";
+import { useState } from "react";
 import posts from "../data/posts";
 
 const PostCreatePage = () => {
-  const [formData, setFormData] = useState({
+  const [post, setPost] = useState({
     id: posts.length,
     title: "",
     content: "",
     author: { id: posts.length, username: "아기사자" },
     tags: [],
+    like_users: [],
+    created_at: "2024-02-04T07:42:50.658501Z",
   });
 
   const onSubmit = (e) => {
@@ -27,7 +28,7 @@ const PostCreatePage = () => {
           type="text"
           placeholder="제목을 입력하세요"
           id="title"
-          defaultValue={formData.title}
+          defaultValue={post.title}
           className="input"
           required
         />
@@ -37,7 +38,7 @@ const PostCreatePage = () => {
         <textarea
           placeholder="내용을 입력하세요"
           id="content"
-          defaultValue={formData.content}
+          defaultValue={post.content}
           cols="30"
           rows="10"
           className="input"
@@ -57,9 +58,9 @@ const PostCreatePage = () => {
             <button className="small-button w-16">추가</button>
           </div>
         </div>
-        {formData.tags && (
+        {post.tags && (
           <div className="flex w-full mt-3 gap-x-1 flew-nowrap">
-            {formData.tags.map((tag) => (
+            {post.tags.map((tag) => (
               <div key={tag} className="flex">
                 <span className="tag active m-1 flex flex-row items-center gap-x-2">
                   <p>#{tag}</p>
@@ -70,7 +71,7 @@ const PostCreatePage = () => {
           </div>
         )}
         <button type="submit" className="button mt-7">
-          제출
+          완료
         </button>
       </form>
     </div>

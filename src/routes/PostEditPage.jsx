@@ -1,22 +1,21 @@
 import { useEffect, useState } from "react";
-import { BigPost } from "../components/Posts";
 import { useParams } from "react-router-dom";
 import posts from "../data/posts";
 
 const PostEditPage = () => {
   const { postId } = useParams();
-  const [formData, setFormData] = useState({});
+  const [post, setPost] = useState({});
 
-  // 기존 post 불러오기
+  // 기존 게시물 불러오기
   useEffect(() => {
     const post = posts.find((post) => post.id === parseInt(postId));
-    const postFormData = { ...post, tags: post.tags.map((tag) => tag.content) };
-    setFormData(postFormData);
+    const originalPost = { ...post, tags: post.tags.map((tag) => tag.content) };
+    setPost(originalPost);
   }, [postId]);
 
   const onSubmit = (e) => {
-    alert("게시글을 수정합니다.");
-    //TODO : api connect(edit post)
+    alert("게시물을 수정합니다.");
+    // TODO : api connect(edit post)
   };
 
   return (
@@ -24,30 +23,30 @@ const PostEditPage = () => {
       <h3 className="font-bold text-4xl">게시글 수정</h3>
       <form className="form" onSubmit={onSubmit}>
         <label htmlFor="title" className="label">
-          Title
+          제목
         </label>
         <input
           type="text"
           placeholder="제목을 입력하세요"
           id="title"
-          defaultValue={formData.title}
+          defaultValue={post.title}
           className="input"
           required
         />
         <label htmlFor="content" className="label">
-          Content
+          내용
         </label>
         <textarea
           placeholder="내용을 입력하세요"
           id="content"
-          defaultValue={formData.content}
+          defaultValue={post.content}
           cols="30"
           rows="10"
           className="input"
           required
         ></textarea>
         <label htmlFor="tags" className="label">
-          Tags
+          태그
         </label>
         <div className="flex w-full flex-col">
           <div className="flex  w-full gap-x-5">
@@ -60,9 +59,9 @@ const PostEditPage = () => {
             <button className="small-button w-16">add</button>
           </div>
         </div>
-        {formData.tags && (
+        {post.tags && (
           <div className="flex w-full mt-3 gap-x-1 flew-nowrap">
-            {formData.tags.map((tag) => (
+            {post.tags.map((tag) => (
               <div key={tag} className="flex">
                 <span className="tag active m-1 flex flex-row items-center gap-x-2">
                   <p>#{tag}</p>
@@ -73,7 +72,7 @@ const PostEditPage = () => {
           </div>
         )}
         <button type="submit" className="button mt-7">
-          Submit
+          완료
         </button>
       </form>
     </div>

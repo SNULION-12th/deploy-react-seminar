@@ -3,7 +3,7 @@ const posts = [
   {
     id: 1,
     title: "#1 Post",
-    content: "My Number one post content",
+    content: "첫번째 게시물입니다",
     author: { id: 1, username: "주현" },
     tags: [
       { id: 1, content: "멋사" },
@@ -16,7 +16,7 @@ const posts = [
   {
     id: 2,
     title: "#2 post",
-    content: "My Number two post content",
+    content: "두번째 게시물입니다",
     author: { id: 2, username: "세안" },
     tags: [
       { id: 1, content: "멋사" },
@@ -28,7 +28,7 @@ const posts = [
   {
     id: 3,
     title: "#3 post",
-    content: "My Number three post content",
+    content: "세번째 게시물입니다",
     author: { id: 3, username: "수혁" },
     tags: [
       { id: 5, content: "회장님" },
@@ -40,7 +40,7 @@ const posts = [
   {
     id: 4,
     title: "#4 post",
-    content: "My Number four post content",
+    content: "네번째 게시물입니다",
     author: { id: 4, username: "12기_1" },
     tags: [
       { id: 7, content: "천재" },
@@ -52,7 +52,7 @@ const posts = [
   {
     id: 5,
     title: "#5 post",
-    content: "My Number five post content",
+    content: "다섯번째 게시물입니다",
     author: { id: 5, username: "12기_2" },
     tags: [
       { id: 1, content: "멋사" },
