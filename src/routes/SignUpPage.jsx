@@ -33,14 +33,14 @@ const SignUpPage = () => {
         />
 
         <label htmlFor="college" className="label">
-          대학:{" "}
+          *대학:{" "}
         </label>
-        <input type="text" id="college" className="input" />
+        <input required type="text" id="college" className="input" />
 
         <label htmlFor="major" className="label">
-          전공:{" "}
+          *전공:{" "}
         </label>
-        <input type="text" id="major" className="input" />
+        <input required type="text" id="major" className="input" />
 
         <div className="flex flex-row items-center gap-5">
           <button type="reset" className="button mt-7">
