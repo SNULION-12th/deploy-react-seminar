@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { BigPost } from "../components/Posts";
+import Comment from "../components/Comment";
 
 import posts from "../data/posts";
 
@@ -21,6 +22,8 @@ const PostDetailPage = () => {
 		post && (
 			<div className="flex flex-col items-center w-[60%] p-8">
 				<BigPost post={post} />
+
+				<Comment postId={postId} />
 
 				<div className="flex flex-row gap-3">
 					<Link to={`/${post.id}/edit`}>
