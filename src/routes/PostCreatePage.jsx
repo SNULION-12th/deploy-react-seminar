@@ -110,7 +110,7 @@ const PostCreatePage = () => {
           type="text"
           placeholder="제목을 입력하세요"
           id="title"
-          defaultValue={post.title}
+          value={post.title}
           className="input"
           onChange={handleChange}
           required
@@ -121,7 +121,7 @@ const PostCreatePage = () => {
         <textarea
           placeholder="내용을 입력하세요"
           id="content"
-          defaultValue={post.content}
+          value={post.content}
           cols="30"
           rows="10"
           className="input"

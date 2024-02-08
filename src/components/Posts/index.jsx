@@ -59,7 +59,7 @@ export const BigPost = ({ post }) => {
         className="flex flex-row text-black cursor-pointer"
         onClick={onClickLike}
       >
-        ❤️ {post.like_users.length > 0 ? post.like_users.length : "0"}
+        {post.like_users.length > 0 && `❤️ ${post.like_users.length}`}
       </div>
     </div>
   );
