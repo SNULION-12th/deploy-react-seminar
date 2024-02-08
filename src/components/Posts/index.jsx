@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
 export const SmallPost = ({ post }) => {
+  const onClickLike = () => {
+    alert("나도 좋아!");
+    // add api call for liking post here
+  };
   return (
     <Link
       to={`/${post.id}`}
@@ -15,7 +19,7 @@ export const SmallPost = ({ post }) => {
           </span>
         ))}
       </div>
-      <div className="cursor-pointer">
+      <div className="cursor-pointer" onClick={onClickLike}>
         {post.like_users.length > 0 && `❤️ ${post.like_users.length}`}
       </div>
     </Link>
@@ -23,6 +27,10 @@ export const SmallPost = ({ post }) => {
 };
 
 export const BigPost = ({ post }) => {
+  const onClickLike = () => {
+    alert("나도 좋아!");
+    // add api call for liking post here
+  };
   return (
     <div className="flex flex-col px-8 py-5 w-full bg-orange-400 ring-4 ring-orange-300 rounded-xl gap-5">
       <div className="flex flex-row items-center justify-between gap-3">
@@ -47,7 +55,10 @@ export const BigPost = ({ post }) => {
           ))}
       </div>
 
-      <div className="flex flex-row text-black cursor-pointer">
+      <div
+        className="flex flex-row text-black cursor-pointer"
+        onClick={onClickLike}
+      >
         ❤️ {post.like_users.length > 0 ? post.like_users.length : "0"}
       </div>
     </div>
