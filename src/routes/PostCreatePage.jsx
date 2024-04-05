@@ -137,7 +137,7 @@ const PostCreatePage = () => {
               type="text"
               placeholder="태그를 추가하세요"
               id="tags"
-              defaultValue={tagInputValue}
+              value={tagInputValue}
               onChange={handleTag}
               className="input grow"
             />
