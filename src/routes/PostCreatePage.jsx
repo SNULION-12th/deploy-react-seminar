@@ -41,14 +41,14 @@ const PostCreatePage = () => {
         tag.includes(e.target.value)
       );
       setAutoCompletes(autoCompleteData);
+    } else {
+      setAutoCompletes([]);
     }
   };
 
   const handleAutoCompletes = (autoComplete) => {
     const selectedTag = tags.find((tag) => tag === autoComplete);
-
     if (post.tags.includes(selectedTag)) return;
-
     setPost({
       ...post,
       tags: [...post.tags, selectedTag],
@@ -137,7 +137,7 @@ const PostCreatePage = () => {
               type="text"
               placeholder="태그를 추가하세요"
               id="tags"
-              value={tagInputValue}
+              defaultValue={tagInputValue}
               onChange={handleTag}
               className="input grow"
             />
