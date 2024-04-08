@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const CommentElement = (props) => {
-    const { comment, handleCommentDelete } = props;
+    const { comment, handleCommentDelete, postId } = props;
     const [content, setContent] = useState(comment.content);
     const [isEdit, setIsEdit] = useState(false);
 
@@ -13,8 +13,13 @@ const CommentElement = (props) => {
     let day = date.getDate();
     day = day < 10 ? `0${day}` : day;
 
-    const handleEditComment = () => {
-        alert("댓글 수정"); // add api call for editing comment
+    const handleEditComment = () => { // add api call for editing comment
+        setIsEdit(!isEdit);
+        console.log({
+            post: postId,
+            comment: comment.id,
+            content: content
+        });
     };
 
     useEffect(() => { // add api call to check if user is the author of the comment
@@ -26,7 +31,7 @@ const CommentElement = (props) => {
                 {isEdit ? (
                     <input className="input mb-2" value={content} onChange={(e) => setContent(e.target.value)} />
                 ) : (
-                    <p className="text-lg">{comment.content}</p>
+                    <p className="text-lg">{content}</p>
                 )}
 
                 <span className="text-base text-gray-300">{year}.{month}.{day}</span>

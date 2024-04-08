@@ -8,13 +8,29 @@ const Comment = ({ postId }) => {
 
     const handleCommentSubmit = (e) => {
         e.preventDefault();
-        alert("댓글 작성"); // add api call for creating comment
+        setCommentList([ // TODO: add api call for creating comment
+            ...commentList,
+            {
+                id: commentList.length + 1,
+                content: newContent,
+                created_at: new Date().toISOString(),
+                post: postId,
+                author: {
+                    id: 1,
+                    username: "user1"
+                }
+            }
+        ]);
+        console.log({
+            post: postId,
+            content: newContent
+        });
         setNewContent("");
     };
 
     const handleCommentDelete = (commentId) => {
-        console.log(commentId);
-        alert("댓글 삭제"); // add api call for deleting comment
+        console.log("comment: ", commentId);
+        setCommentList(commentList.filter((comment) => comment.id !== commentId)); // TODO: add api call for deleting comment
     };
 
     return (
@@ -22,7 +38,7 @@ const Comment = ({ postId }) => {
             <h1 className="text-3xl font-bold my-5">Comments</h1>
             {commentList.map((comment) => {
                 return (
-                    <CommentElement key={comment.id} comment={comment} handleCommentDelete={handleCommentDelete} />
+                    <CommentElement key={comment.id} comment={comment} handleCommentDelete={handleCommentDelete} postId={postId} />
                 );
             })}
             
