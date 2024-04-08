@@ -43,7 +43,7 @@ const CommentElement = (props) => {
             <div className="flex flex-row items-center gap-3">
                 {isEdit ? (
                     <>
-                        <button onClick={() => { setIsEdit(!isEdit); setContent(content); }}>취소</button>
+                        <button onClick={() => { setIsEdit(!isEdit); setOnChangeValue(content); }}>취소</button>
                         <button onClick={handleEditComment}>완료</button>
                     </>
                 ) : (
