@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { SmallPost } from "../components/Posts";
 import { Link } from "react-router-dom";
 import posts from "../data/posts";
+import axios from "axios";
 
 const HomePage = () => {
   const [postList, setPostList] = useState(posts);
@@ -9,6 +10,15 @@ const HomePage = () => {
   const [tags, setTags] = useState([]);
   const [searchTags, setSearchTags] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    const getPostAPI = async () => {
+      const response = await axios.get("http://localhost:8000/api/post/");
+      console.log(response);
+    };
+    getPostAPI();
+  }, []);
+
   useEffect(() => {
     const tagList = posts.reduce((acc, post) => {
       for (let tag of post.tags) {
