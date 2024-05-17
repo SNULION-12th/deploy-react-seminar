@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { SmallPost } from "../components/Posts";
 import { Link } from "react-router-dom";
 import { getPosts, getTags } from "../apis/api";
+import { getCookie } from "../utils/cookie";
 
 const HomePage = () => {
   const [postList, setPostList] = useState([]);
@@ -85,11 +86,13 @@ const HomePage = () => {
             <SmallPost key={post.id} post={post} />
           ))}
       </div>
-      <div className="flex justify-center m-20">
-        <Link className="button" to="/create">
-          작성
-        </Link>
-      </div>
+      {getCookie("access_token") ? (
+        <div className="flex justify-center m-20">
+          <Link className="button" to="/create">
+            작성
+          </Link>
+        </div>
+      ) : null}
     </div>
   );
 };
