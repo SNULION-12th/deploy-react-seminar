@@ -4,12 +4,15 @@ import { BigPost } from "../components/Posts";
 import Comment from "../components/Comment";
 
 // import posts from "../data/posts";
-import { getPost } from "../apis/api";
+import { getPost, getUser } from "../apis/api";
+import { getCookie } from "../utils/cookie";
 
 const PostDetailPage = () => {
   const { postId } = useParams();
-
   const [post, setPost] = useState(null);
+  const [user, setUser] = useState();
+
+  // 작성했던 getPost()를 호출한 후, setPost를 통해 post에 저장
   useEffect(() => {
     const getPostAPI = async () => {
       const post = await getPost(postId);
@@ -17,7 +20,18 @@ const PostDetailPage = () => {
     };
     getPostAPI();
   }, [postId]);
-  // 작성했던 getPost()를 호출한 후, setPostList를 통해 postList에 저장
+
+  useEffect(() => {
+    // access_token이 있으면 유저 정보 가져옴
+    if (getCookie("access_token")) {
+      const getUserAPI = async () => {
+        const user = await getUser();
+        setUser(user);
+      };
+      getUserAPI();
+    }
+  }, []);
+
   const navigate = useNavigate();
   const onClickDelete = () => {
     alert("게시물을 삭제합니다.");
@@ -32,12 +46,19 @@ const PostDetailPage = () => {
 
         <Comment postId={postId} />
         <div className="flex flex-row gap-3">
-          <Link to={`/${post.id}/edit`}>
-            <button className="button mt-10 py-2 px-10">수정</button>
-          </Link>
-          <button className="button mt-10 py-2 px-10" onClick={onClickDelete}>
-            삭제
-          </button>
+          {user?.id === post?.author.id ? (
+            <>
+              <Link to={`/${post.id}/edit`}>
+                <button className="button mt-10 py-2 px-10">수정</button>
+              </Link>
+              <button
+                className="button mt-10 py-2 px-10"
+                onClick={onClickDelete}
+              >
+                삭제
+              </button>
+            </>
+          ) : null}
         </div>
       </div>
     )

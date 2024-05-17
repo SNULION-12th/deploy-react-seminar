@@ -42,7 +42,7 @@ export const createPost = async (data, navigate) => {
 };
 
 export const updatePost = async (id, data, navigate) => {
-  const response = await instanceWithToken.patch(`/post/${id}/`, data);
+  const response = await instanceWithToken.put(`/post/${id}/`, data);
   if (response.status === 200) {
     console.log("POST UPDATE SUCCESS");
     navigate(-1);
@@ -101,3 +101,13 @@ export const updateComment = async (id, data) => {
 
 // 과제 !!
 export const deleteComment = async (id) => {};
+
+export const getUser = async () => {
+  const response = await instanceWithToken.get("/account/info/");
+  if (response.status === 200) {
+    console.log("GET USER SUCCESS");
+  } else {
+    console.log("[ERROR] error while updating comment");
+  }
+  return response.data;
+};
