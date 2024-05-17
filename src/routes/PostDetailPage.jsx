@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { BigPost } from "../components/Posts";
 import Comment from "../components/Comment";
-import { deletePost } from "../apis/api";
-
-// import posts from "../data/posts";
-import { getPost, getUser } from "../apis/api";
+import { getPost, getUser, deletePost } from "../apis/api";
 import { getCookie } from "../utils/cookie";
 
 const PostDetailPage = () => {
