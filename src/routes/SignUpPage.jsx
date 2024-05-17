@@ -1,6 +1,5 @@
 import { useState } from "react";
-// import axios from "axios";
-// import { getCookie } from "../utils/cookie";
+import { signUp } from "../apis/api";
 
 const SignUpPage = () => {
   const [signUpData, setSignUpData] = useState({
@@ -18,22 +17,8 @@ const SignUpPage = () => {
   };
 
   const handleSignUpSubmit = async (e) => {
-    // e.preventDefault(); // to prevent reloading the page
-    // const response = await axios.post(
-    //   "http://localhost:8000/api/account/signup/",
-    //   signUpData,
-    //   {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "X-CSRFToken": getCookie("csrftoken"),
-    //     },
-    //     withCredentials: true,
-    //   }
-    // );
-    // console.log(response);
-
-    console.log(signUpData);
-    alert("회원가입 하기"); // TODO: add api call for sign up
+    e.preventDefault(); // to prevent reloading the page
+    signUp(signUpData);
   };
 
   return (
