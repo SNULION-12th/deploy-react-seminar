@@ -20,6 +20,7 @@ export const signUp = async (data) => {
 
 export const getPosts = async () => {
   const response = await instance.get("/post/");
+  console.log(response.data);
   return response.data;
 };
 
