@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import CommentElement from "./CommentElement";
-import { getComments } from "../../apis/api";
+import { getComments, createComment } from "../../apis/api";
 
 const Comment = ({ postId }) => {
   const [commentList, setCommentList] = useState([]); // state for comments
@@ -17,24 +17,7 @@ const Comment = ({ postId }) => {
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    setCommentList([
-      // TODO: add api call for creating comment
-      ...commentList,
-      {
-        id: commentList.length + 1,
-        content: newContent,
-        created_at: new Date().toISOString(),
-        post: postId,
-        author: {
-          id: 1,
-          username: "user1",
-        },
-      },
-    ]);
-    console.log({
-      post: postId,
-      content: newContent,
-    });
+    createComment({ post: postId, content: newContent });
     setNewContent("");
   };
 
