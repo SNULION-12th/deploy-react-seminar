@@ -52,7 +52,15 @@ export const updatePost = async (id, data, navigate) => {
 };
 
 // 과제!!
-export const deletePost = async (id, navigate) => {};
+export const deletePost = async (id, navigate) => {
+  const respose = await instanceWithToken.delete(`/post/${id}/`);
+  if (respose.status === 204) {
+    console.log("DELETE SUCCESS");
+    navigate(-1);
+  } else {
+    console.log("[ERROR] error while deleting post");
+  }
+};
 
 // 과제!!
 export const likePost = async (postId) => {

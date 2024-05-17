@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { BigPost } from "../components/Posts";
 import Comment from "../components/Comment";
+import { deletePost } from "../apis/api";
 
 // import posts from "../data/posts";
 import { getPost, getUser } from "../apis/api";
@@ -33,10 +34,14 @@ const PostDetailPage = () => {
   }, []);
 
   const navigate = useNavigate();
-  const onClickDelete = () => {
-    alert("게시물을 삭제합니다.");
-    navigate("/");
-    // add api call for deleting post
+  const onClickDelete = async () => {
+    const confirmDelete = window.confirm("정말 삭제하시겠습니까?");
+    if (!confirmDelete) return;
+    try {
+      await deletePost(postId, navigate);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
