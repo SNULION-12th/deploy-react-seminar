@@ -12,8 +12,10 @@ export const signIn = async (data) => {
 
 export const signUp = async (data) => {
   const response = await instance.post("/account/signup/", data);
-  if (response.status === 200) {
+  if (response.status === 200 || response.status === 201) {
     window.location.href = "/";
+  } else {
+    console.log("Error");
   }
   return response;
 };
